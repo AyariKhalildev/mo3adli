@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mo3adli/screens/home_page.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 void main() {
   runApp(const Mo3adli());
 }

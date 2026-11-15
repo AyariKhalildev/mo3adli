@@ -26,6 +26,14 @@ class _HomePageState extends State<HomePage> {
     return Colors.green;
   }
 
+  String getStudentStateImage() {
+    final average = double.tryParse(_avg) ?? 0;
+
+    if (average < 10) return 'assets/students-state/sad-student.png';
+    if (average <= 12) return 'assets/students-state/okay-student.png';
+    return 'assets/students-state/happy-student.png';
+  }
+
   @override
   void initState() {
     super.initState();
@@ -53,23 +61,37 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(50.0),
           child: Column(
             children: [
-                  SizedBox(
-            
-                    width: 300,
+                  SizedBox.square(
+                    dimension: 300,
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
                         CircularProgressIndicator(
                         color: getAverageColor(),
-                        strokeWidth: 8,
+                        strokeWidth: 12,
                         strokeCap: StrokeCap.round,
-                        value: getAveragePercentage(),
+                        value: /*getAveragePercentage() */ 0.75,
                       ),
                       Center(
-                        child: Text(
-                          _avg + "/20",
-                          style: Theme.of(context).textTheme.headlineMedium,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 15),
+                          child: Column(
+                            children: [
+                             Image.asset(
+                                getStudentStateImage(),
+                                width: 150,
+                                height: 150,
+                                fit: BoxFit.contain,
+                              )
+                              ,
+                              Text(
+                                _avg + "/20",
+                                style: Theme.of(context).textTheme.headlineMedium,
+                              ),
+                          
+                            ],
                           ),
+                        ),
                       )
                       ],
                     ),

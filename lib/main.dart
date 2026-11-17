@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mo3adli/screens/home_page.dart';
+import 'package:mo3adli/screens/choose_grade_screen.dart';
+import 'package:mo3adli/screens/score_screen.dart';
+import 'package:mo3adli/screens/score_screen.dart';
 
 void main() {
   runApp(const Mo3adli());
@@ -18,7 +20,7 @@ class Mo3adli extends StatelessWidget {
         
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: HomePage(),
+      home: ChooseGradeScreen(),
     );
   }
 }

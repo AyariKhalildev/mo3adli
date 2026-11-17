@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class scorePage extends StatefulWidget {
+  const scorePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<scorePage> createState() => _scorePage();
 }
 
-class _HomePageState extends State<HomePage> {
+class  _scorePage extends State< scorePage> {
   String _avg = '0.00';
 
   double getAveragePercentage() {
@@ -56,11 +56,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            print("clicked");
+          },
+          child: Icon(
+            Icons.arrow_back
+
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(50.0),
-          child: Column(
-            children: [
+          child: Center(
+            child: 
                   SizedBox.square(
                     dimension: 300,
                     child: Stack(
@@ -70,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                         color: getAverageColor(),
                         strokeWidth: 12,
                         strokeCap: StrokeCap.round,
-                        value: /*getAveragePercentage() */ 0.75,
+                        value: getAveragePercentage(),
                       ),
                       Center(
                         child: Padding(
@@ -97,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 
-            ]
+            
           ),
         ),
       ),
